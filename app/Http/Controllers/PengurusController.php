@@ -45,7 +45,7 @@ class PengurusController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePengurusRequest $request)
+    public function store(Request $request)
     {
         $requestData = $request->validate([
             'nim' => 'required|unique:nim',

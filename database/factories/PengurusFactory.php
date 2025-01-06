@@ -19,7 +19,7 @@ class PengurusFactory extends Factory
         return [
             'nim'=>fake()->unique()->randomNumber(8),
             'nama'=>fake()->name(),
-            'email'=>fake()->mail(),
+            'email'=>fake()->email(),
             'kelas'=>fake()->randomElement(['TRK','TI','SI']),
         ];
     }

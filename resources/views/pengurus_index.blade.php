@@ -6,7 +6,7 @@
             <h4>Data Pengurus UKMI Ar-Ruhul Jadid</h4>
             <div class="row mb-3 mt-3">
                 <div class="col-md-6">
-                    <a href="/pasien/create" class="btn btn-primary btn-sm">Tambah Data</a>
+                    <a href="/pengurus/create" class="btn btn-primary btn-sm">Tambah Data</a>
                 </div>
             </div>
         </div>

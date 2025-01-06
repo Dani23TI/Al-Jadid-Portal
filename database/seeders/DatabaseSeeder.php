@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Poli::factory(4)->create();
         // \App\Models\Pasien::factory(5)->create();
         // \App\Models\Daftar::factory(5)->create();
-        \App\Models\Pengurus::factory(5)->create();
+        \App\Models\Pengurus::factory(8)->create();
     }
 }

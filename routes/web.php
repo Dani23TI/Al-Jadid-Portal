@@ -25,6 +25,7 @@ Route::middleware([Authenticate::class])->group(function() {
         Route::resource('laporan-daftar', LaporanDaftarController::class);
 });
 Route::resource('pengurus', PengurusController::class);
+Route::get('/pengurus/create', [PengurusController::class, 'create'])->name('pengurus_create');
 
 Auth::routes();
 
