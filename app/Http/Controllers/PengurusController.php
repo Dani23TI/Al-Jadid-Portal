@@ -48,7 +48,7 @@ class PengurusController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->validate([
-            'nim' => 'required|unique:nim',
+            'nim' => 'required',
             'nama' => 'required|min:3',
             'department' => 'required',
             'email' => 'required',
