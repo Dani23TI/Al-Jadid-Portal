@@ -50,6 +50,7 @@ class PengurusController extends Controller
         $requestData = $request->validate([
             'nim' => 'required|unique:nim',
             'nama' => 'required|min:3',
+            'department' => 'required',
             'email' => 'required',
             'kelas' => 'required', //Alamat Boleh Kosong
          ]);
@@ -85,6 +86,7 @@ class PengurusController extends Controller
         $requestData = $request->validate([
             'nim' => 'required|unique:nim' . $id,
             'nama' => 'required|min:3',
+            'department' => 'required',
             'email' => 'required',
             'kelas' => 'required',
         ]);
@@ -102,8 +104,8 @@ class PengurusController extends Controller
     public function destroy(string $id)
     {
         $pengurus = \App\Models\Pengurus::findOrFail($id);
-        if ($pengurus->daftar->count() >= 1){
-            flash('Data tidak bisa dihapus karena sudah terkait dengan poli')->error();
+        if ($pengurus->count() >= 1){
+            flash('Data tidak bisa dihapus karena sudah terkait dengan Department')->error();
             return back();
         }
         $pengurus->delete();

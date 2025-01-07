@@ -41,7 +41,7 @@
                             <a class="nav-link" href="{{ url('/home') }}">
                                 {{-- style="color:darkturquoise;" (Untuk ganti warna tulisan) --}}
                                 <i class="ti ti-layout-dashboard"></i>
-                                Beranda
+                                <strong>Beranda</strong>
                             </a>
                         </li>
                         @auth
@@ -50,38 +50,17 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="pasienDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="ti ti-user"></i>
-                                    Pengurus
+                                    <strong>Pengurus</strong>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="pasienDropdown">
                                     <li>
                                         <a class="dropdown-item" href="{{ route('pengurus.index') }}">
-                                            Lihat Data Pengurus
+                                            <strong>Lihat Data Pengurus</strong>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('pengurus.create') }}">
-                                            Tambah Data Pengurus
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- Dropdown Poli -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="poliDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="ti ti-user"></i>
-                                    Poli
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="poliDropdown">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('poli.index') }}">
-                                            Lihat Data Poli
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('poli.create') }}">
-                                            Tambah Data Poli
+                                            <strong>Tambah Data Pengurus</strong>
                                         </a>
                                     </li>
                                 </ul>
@@ -91,14 +70,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('laporan-pasien') }}">
                                 <i class="ti ti-layout-dashboard"></i>
-                                Berita
+                                <strong>Berita</strong>
                             </a>
                         </li>
                         <!-- Dokumentasi -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('laporan-daftar') }}">
                                 <i class="ti ti-layout-dashboard"></i>
-                                Dokumentasi
+                                <strong>Dokumentasi</strong>
                             </a>
                         </li>
                     </ul>

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nim');
             $table->string('nama');
-            $table->integer('email');
+            $table->string('email');
+            $table->enum('department',['Danus', 'Kaderisasi','Media']);
             $table->enum('kelas',['TRK', 'TI','SI']);
             // $table->string('alamat')->nullable();
             $table->timestamps();

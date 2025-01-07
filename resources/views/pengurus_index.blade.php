@@ -14,10 +14,10 @@
             <thead>
                 <tr>
                     <th>Np</th>
-                    <th>No Pasien</th>
+                    <th>NIM</th>
                     <th>Nama</th>
-                    <th>Umur</th>
                     <th>Email</th>
+                    <th>Departemen</th>
                     <th>Kelas</th>
                     {{-- <th>Tgl Buat</th> --}}
                     <th>AKSI</th>
@@ -32,6 +32,7 @@
                         <td>{{ $item->nim }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->email }}</td>
+                        <td>{{ $item->department }}</td>
                         <td>{{ $item->kelas }}</td>
                         {{-- <td>{{ $item->created_at }}</td> --}}
                         <td>

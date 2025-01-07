@@ -41,6 +41,25 @@
                         name="email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group mt-1 mb-3">
+                    <label for="department">Department</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="department" id="Danus" value="Danus"
+                            {{ old('department') === 'Danus' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="Danus">Danus</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="department" id="Kaderisasi" value="Kaderisasi"
+                            {{ old('department') === 'Kaderisasi' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="Kaderisasi">Kaderisasi</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="department" id="Media" value="Media"
+                            {{ old('department') === 'Media' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="Media">Media</label>
+                    </div>
+                </div>
+
+                <div class="form-group mt-1 mb-3">
                     <label for="kelas">Kelas</label><br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="kelas" id="TRK" value="TRK"
@@ -51,6 +70,11 @@
                         <input class="form-check-input" type="radio" name="kelas" id="TI" value="TI"
                             {{ old('kelas') === 'TI' ? 'checked' : '' }}>
                         <label class="form-check-label" for="TI">TI</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="kelas" id="SI" value="SI"
+                            {{ old('kelas') === 'SI' ? 'checked' : '' }}>
+                        <label class="form-check-label" for="SI">SI</label>
                     </div>
                 </div>
 

@@ -20,6 +20,7 @@ class PengurusFactory extends Factory
             'nim'=>fake()->unique()->randomNumber(8),
             'nama'=>fake()->name(),
             'email'=>fake()->email(),
+            'department'=>fake()->randomElement(['Danus','Kaderisasi','Media']),
             'kelas'=>fake()->randomElement(['TRK','TI','SI']),
         ];
     }
