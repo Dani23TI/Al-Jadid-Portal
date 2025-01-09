@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Nicolaslopezj\Searchable\SearchableTrait;
+// use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Daftar extends Model
 {
-    use SearchableTrait;
+    // use SearchableTrait;
     use HasFactory;
     protected $guarded = [];
 

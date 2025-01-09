@@ -13,20 +13,15 @@ use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Auth\Middleware\Authenticate;
 
-// Route::resource('mahasiswa', MahasiswaController::class);
-// Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa_create');
-
-Route::resource('pasien', PasienController::class)->middleware(Authenticate::class);
-Route::middleware([Authenticate::class])->group(function() {
-        Route::resource('pasien', PasienController::class);
-        Route::resource('daftar', DaftarController::class);
-        Route::resource('poli', PoliController::class);
-        Route::resource('laporan-pasien', LaporanPasienController::class);
-        Route::resource('laporan-daftar', LaporanDaftarController::class);
-});
-Route::resource('pengurus', PengurusController::class);
-Route::get('/pengurus/create', [PengurusController::class, 'create'])->name('pengurus_create');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function () {
+        // Pastikan hanya yang login yang bisa melihat halaman ini
+        return view('home');
+    })->name('home');
+    
+    // Akses CRUD hanya untuk yang sudah login
+    Route::middleware(['auth'])->group(function () {
+        Route::resource('pengurus', PengurusController::class);
+        Route::get('/pengurus/create', [PengurusController::class, 'create'])->name('pengurus_create');
+    });
+    
+    Auth::routes();

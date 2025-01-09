@@ -12,26 +12,18 @@ class PengurusController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-    //     $pengurus = Pengurus::paginate(10); // Sesuaikan model dengan struktur database Anda
-    // return view('pasien.index', compact('pengurus'));
+        // Cek jika ada query pencarian
+        if ($request->filled('q')) {
+            // Lakukan pencarian dengan query yang diterima dari parameter 'q'
+            $data['pengurus'] = Pengurus::search($request->input('q'))->paginate(10);
+        } else {
+            // Jika tidak ada pencarian, tampilkan data terbaru
+            $data['pengurus'] = Pengurus::latest()->paginate(10);
+        }
 
-    // Ambil data pengurus dari tabel penguruses
-    $pengurus = Pengurus::paginate(10); // Atur pagination sesuai kebutuhan
-    // Kirim data ke view
-    return view('pengurus_index', compact('pengurus'));
-
-        // $data['pengurus'] = \App\Models\Pengurus::latest()->paginate(10);
-        // return view('nim', $data);
-
-        //Before
-        // $pengurus = \App\Models\Pengurus::latest()->paginate(10);
-        // if (request()->wantsJson()) {
-        //     return response()->json(data: $pengurus);
-        // }
-        // $data['pengurus'] = $pengurus;
-        // return view(view: 'pengurus_index');
+        return view('pengurus_index', $data);
     }
 
     /**
@@ -53,12 +45,12 @@ class PengurusController extends Controller
             'department' => 'required',
             'email' => 'required',
             'kelas' => 'required', //Alamat Boleh Kosong
-         ]);
-         $pengurus = new \App\Models\Pengurus(); //Membuat Objek Kosong di Variabel Model
-         $pengurus->fill($requestData); //Mengisi var model dengan data yang sudah ada
-         $pengurus->save(); //Menyimpan data Ke Database
-         flash('Data Sudah Disimpan')->success();
-         return back();
+        ]);
+        $pengurus = new \App\Models\Pengurus(); //Membuat Objek Kosong di Variabel Model
+        $pengurus->fill($requestData); //Mengisi var model dengan data yang sudah ada
+        $pengurus->save(); //Menyimpan data Ke Database
+        flash('Data Sudah Disimpan')->success();
+        return back();
     }
 
     /**
@@ -86,9 +78,9 @@ class PengurusController extends Controller
         $requestData = $request->validate([
             'nim' => 'required|unique:nim' . $id,
             'nama' => 'required|min:3',
-            'department' => 'required',
+            'department' => 'required|in:danus,kaderisasi,media',
             'email' => 'required',
-            'kelas' => 'required',
+            'kelas' => 'required|in:ti,si,trk',
         ]);
         $pengurus = \App\Models\Pengurus::findOrFail($id); //Membuat Objek Kosong di Variabel Model
         $pengurus->fill($requestData);
@@ -104,7 +96,7 @@ class PengurusController extends Controller
     public function destroy(string $id)
     {
         $pengurus = \App\Models\Pengurus::findOrFail($id);
-        if ($pengurus->count() >= 1){
+        if ($pengurus->count() >= 1) {
             flash('Data tidak bisa dihapus karena sudah terkait dengan Department')->error();
             return back();
         }
