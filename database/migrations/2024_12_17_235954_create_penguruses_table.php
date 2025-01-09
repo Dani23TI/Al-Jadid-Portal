@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->enum('department',['Danus', 'Kaderisasi','Media']);
-            $table->enum('kelas',['TRK', 'TI','SI']);
+            $table->string('kelas');
             // $table->string('alamat')->nullable();
             $table->timestamps();
         });
